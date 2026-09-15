@@ -1,0 +1,1214 @@
+/* ==========================================================================
+   COLEGIO ÉLITE — PREMIUM INSTITUTIONAL DESIGN
+   ═══════════════════════════════════════════════════════════════════════════
+   Paleta: Azul Marino Profundo → Negro degradado · Dorado Institucional
+   Materiales: Glassmorphism · Soft UI Shadows · Gradient Overlays
+   Filosofía: Autoridad + Modernidad + Prestigio Académico
+   ========================================================================== */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. DESIGN TOKENS — PALETA PROFUNDA INSTITUCIONAL
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root {
+  /* Azul Marino Profundo — el ADN institucional */
+  --navy-deep:      #0F2027;
+  --navy-mid:       #142A35;
+  --navy-surface:   #1A3040;
+  --navy-light:     #203A4A;
+  --navy-border:    #2A4A5E;
+
+  /* Dorado Institucional — autoridad y distinción */
+  --gold:           #D4AF37;
+  --gold-light:     #E8C84A;
+  --gold-dark:      #B8962E;
+  --gold-glow:      rgba(212, 175, 55, 0.20);
+  --gold-border:    rgba(212, 175, 55, 0.35);
+  --gold-shimmer:   linear-gradient(135deg, #D4AF37 0%, #F0D060 50%, #D4AF37 100%);
+
+  /* Acentos complementarios */
+  --accent-teal:    #2EC4B6;
+  --accent-coral:   #FF6B6B;
+  --success:        #34D399;
+  --error:          #FF453A;
+
+  --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;  /* Apple-style smooth corners */
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur: 0.3s;
+
+  --shadow-card: 0 12px 32px rgba(0,0,0,0.06);
+  --shadow-hover: 0 20px 48px rgba(0,0,0,0.12);
+  --shadow-glow: 0 0 0 3px rgba(212,175,55,0.3);
+
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. TEMA OSCURO — Mundo visual profundo, dramático e inmersivo
+   ═══════════════════════════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  --bg-base:        #000000;
+  --bg-hero:        linear-gradient(165deg, #0F2027 0%, #0A0A0A 50%, #000000 100%);
+  --bg-alt:         linear-gradient(180deg, #080E13 0%, #040608 100%);
+  --bg-accent:      linear-gradient(175deg, #0F2027 0%, #0B1418 60%, #060A0C 100%);
+  --bg-raised:      #0E1920;
+  --bg-card:        linear-gradient(145deg, rgba(20,42,53,0.60) 0%, rgba(14,25,32,0.90) 100%);
+  --bg-input:       rgba(255,255,255,0.04);
+
+  --text-1: #FFFFFF;
+  --text-2: #CBD5E1;
+  --text-3: #7E93A8;
+  --text-4: rgba(255,255,255,0.7);
+
+  --line:     rgba(255,255,255,0.07);
+  --line-med: rgba(255,255,255,0.14);
+  --line-accent: rgba(212,175,55,0.15);
+
+  --glass-clear:        rgba(15,32,39,0.35);
+  --glass-clear-border: rgba(255,255,255,0.15);
+  --glass-clear-shine:  inset 0 1px 0 rgba(255,255,255,0.20), inset 0 -1px 0 rgba(0,0,0,0.4);
+
+  --glass-frost:        rgba(10,15,20,0.55);
+  --glass-frost-border: rgba(212,175,55,0.25);
+  --glass-frost-shadow: 0 30px 80px rgba(0,0,0,0.95), 0 0 0 1px rgba(255,255,255,0.05);
+
+  --header-blur:  rgba(10,15,20,0.35);
+  --tabs-blur:    rgba(10,15,20,0.35);
+
+  --shadow-card:    0 8px 32px rgba(0,0,0,0.50), 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover:   0 20px 60px rgba(0,0,0,0.70), 0 0 40px rgba(212,175,55,0.06);
+  --shadow-glow:    0 0 30px rgba(212,175,55,0.12);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. TEMA CLARO — Limpio, luminoso con acentos institucionales
+   ═══════════════════════════════════════════════════════════════════════════ */
+[data-theme="light"] {
+  --bg-base:        #FFFFFF;
+  --bg-hero:        linear-gradient(165deg, #0F2027 0%, #1A3A4A 50%, #203A4A 100%);
+  --bg-alt:         linear-gradient(180deg, #F2F4F8 0%, #E8ECF2 100%);
+  --bg-accent:      linear-gradient(175deg, #EEF1F5 0%, #F6F8FB 100%);
+  --bg-raised:      #FFFFFF;
+  --bg-card:        linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.98) 100%);
+  --bg-input:       rgba(0,0,0,0.02);
+
+  --text-1: #0F2027;
+  --text-2: #334155;
+  --text-3: #64748B;
+  --text-4: rgba(10,15,20,0.7);
+
+  --line:     rgba(15,32,39,0.08);
+  --line-med: rgba(15,32,39,0.14);
+  --line-accent: rgba(212,175,55,0.20);
+
+  --glass-clear:        rgba(255,255,255,0.35);
+  --glass-clear-border: rgba(255,255,255,0.50);
+  --glass-clear-shine:  inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -1px 0 rgba(0,0,0,0.02);
+
+  --glass-frost:        rgba(255,255,255,0.55);
+  --glass-frost-border: rgba(212,175,55,0.40);
+  --glass-frost-shadow: 0 16px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.30);
+
+  --header-blur:  rgba(255,255,255,0.40);
+  --tabs-blur:    rgba(255,255,255,0.40);
+
+  --shadow-card:    0 4px 20px rgba(15,32,39,0.08), 0 0 0 1px rgba(15,32,39,0.04);
+  --shadow-hover:   0 16px 48px rgba(15,32,39,0.14), 0 0 0 1px rgba(212,175,55,0.10);
+  --shadow-glow:    0 0 24px rgba(212,175,55,0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. RESET GLOBAL
+   ═══════════════════════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-1);
+  background: var(--bg-base);
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; transition: all var(--dur) var(--ease); }
+button, input, select { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5. UTILIDADES
+   ═══════════════════════════════════════════════════════════════════════════ */
+.skip-link {
+  position: absolute; top: -120px; left: 1.5rem;
+  background: var(--gold-shimmer); color: #000;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.85rem;
+  border-radius: var(--radius-sm); z-index: 99999;
+  transition: top 0.2s var(--ease);
+}
+.skip-link:focus { top: 1.5rem; }
+
+.text-center { text-align: center; }
+
+.container {
+  width: 100%; max-width: 1180px;
+  margin-inline: auto; padding-inline: 1.5rem;
+}
+
+.visually-hidden {
+  position: absolute !important; width: 1px !important; height: 1px !important;
+  padding: 0 !important; margin: -1px !important; overflow: hidden !important;
+  clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   6. MATERIALES DE VIDRIO — Glassmorphism Premium
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Vidrio Cristalino — transparencia elegante con brillo especular */
+.glass-crystal {
+  background: var(--glass-clear);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-clear-border);
+  box-shadow: var(--glass-clear-shine), var(--shadow-card);
+  transition: all var(--dur) var(--ease);
+}
+
+/* Vidrio Difuminado — efecto ahumado profundo */
+.frosted-overlay {
+  background: var(--glass-frost);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid var(--glass-frost-border);
+  box-shadow: var(--glass-frost-shadow);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   7. HEADER — Barra flotante premium con blur saturado
+   ═══════════════════════════════════════════════════════════════════════════ */
+.header-site {
+  position: sticky; top: 0; z-index: 1000;
+  background: var(--header-blur);
+  backdrop-filter: blur(16px) saturate(200%);
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 100%;
+}
+.header-left { display: flex; justify-content: flex-start; }
+.header-center { display: flex; justify-content: center; }
+.header-right-tools { display: flex; justify-content: flex-end; }
+
+.brand-logo-link { 
+  display: inline-flex; align-items: center; gap: 0.75rem; 
+}
+.brand-svg-container {
+  width: 54px; height: 54px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform var(--dur) var(--ease-spring);
+}
+.brand-logo-link:hover .brand-svg-container {
+  transform: scale(1.08) rotate(3deg);
+}
+
+/* Nombre con gradiente dorado — marca de prestigio */
+.brand-name-text {
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 800;
+  letter-spacing: 0.20em; text-transform: uppercase;
+}
+
+[data-theme="dark"] .brand-name-text {
+  background: linear-gradient(135deg, #FFFFFF 20%, #D4AF37 60%, #F0D060 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .brand-name-text {
+  background: linear-gradient(135deg, #0F2027 20%, #D4AF37 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-right-tools { display: flex; align-items: center; gap: 0.5rem; }
+
+/* Toggle de tema — píldora glass */
+.theme-toggle-btn {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  height: 34px; padding: 0 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--glass-clear);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line-med);
+  font-family: var(--font-display);
+  font-size: 0.74rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--text-3); cursor: pointer;
+  transition: all var(--dur) var(--ease);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--gold-border);
+  color: var(--text-1);
+  box-shadow: var(--shadow-glow);
+}
+
+.theme-icon { font-size: 0.9rem; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   8. BARRA DE SECCIONES — Navegación tipo Apple con chips iluminados
+   ═══════════════════════════════════════════════════════════════════════════ */
+.section-tabs-bar {
+  position: sticky; top: 60px; z-index: 990;
+  background: var(--tabs-blur);
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  border-bottom: 1px solid var(--line);
+  padding: 0.5rem 0;
+}
+
+.tabs-scroll-container {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.35rem;
+  overflow-x: auto; scrollbar-width: none;
+}
+.tabs-scroll-container::-webkit-scrollbar { display: none; }
+
+.section-tab-chip {
+  display: inline-flex; align-items: center;
+  white-space: nowrap;
+  height: 34px; padding: 0 1rem;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  font-family: var(--font-display);
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--text-3); cursor: pointer;
+  transition: all var(--dur) var(--ease);
+}
+
+.section-tab-chip:hover {
+  color: var(--text-1);
+  background: var(--glass-clear);
+  border-color: var(--line);
+}
+
+/* Chip activo — gradiente dorado para que destaque */
+.section-tab-chip.active {
+  background: var(--gold-shimmer);
+  color: #000000;
+  border-color: transparent;
+  font-weight: 700;
+  box-shadow: 0 2px 12px rgba(212,175,55,0.30);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   9. SISTEMA DE BOTONES — Premium con gradientes y elevación
+   ═══════════════════════════════════════════════════════════════════════════ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  min-height: 48px; padding: 0 1.75rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 0.9rem; font-weight: 700; letter-spacing: 0.03em;
+  cursor: pointer; border: none;
+  position: relative; overflow: hidden;
+  transition: all var(--dur) var(--ease);
+}
+
+.btn-sm { min-height: 38px; padding: 0 1.1rem; font-size: 0.82rem; }
+.btn-block { width: 100%; }
+
+/* CTA Dorado Premium — Gradiente shimmer con efecto de brillo */
+.btn-gold-accent {
+  background: linear-gradient(135deg, #D4AF37 0%, #E8C84A 40%, #D4AF37 80%, #B8962E 100%);
+  background-size: 200% 200%;
+  color: #000; font-weight: 800;
+  box-shadow: 0 4px 16px rgba(212,175,55,0.30);
+}
+
+.btn-gold-accent:hover {
+  background-position: 100% 100%;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 28px rgba(212,175,55,0.45), var(--shadow-glow);
+}
+
+.btn-gold-accent:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 2px 8px rgba(212,175,55,0.25);
+}
+
+/* Botón secundario — borde sutil */
+.btn-navy-outline {
+  background: transparent;
+  border: 1px solid var(--line-med);
+  color: var(--text-2);
+}
+.btn-navy-outline:hover {
+  background: var(--glass-clear);
+  border-color: var(--gold-border);
+  color: var(--text-1);
+  transform: translateY(-1px);
+}
+
+.btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+
+.spinner-inline {
+  width: 14px; height: 14px;
+  border: 2px solid rgba(0,0,0,0.2); border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   10. SECCIONES — Cada una con personalidad visual distinta
+   ═══════════════════════════════════════════════════════════════════════════ */
+.modular-section {
+  position: relative; padding: 5rem 0;
+}
+
+/* ── HERO: Fondo profundo con degradado marino dramático y Foto Real ── */
+#seccion-admision {
+  background: 
+    linear-gradient(155deg, rgba(15,32,39,0.25) 0%, rgba(10,15,20,0.50) 40%, rgba(0,0,0,0.90) 100%),
+    url('/static/img/fachada-colegio-elite.png') center/cover no-repeat;
+  background-attachment: fixed; /* Parallax suave */
+  padding-bottom: 6rem;
+}
+
+/* En modo claro, el hero sigue siendo oscuro para generar impacto */
+[data-theme="light"] #seccion-admision {
+  background: 
+    linear-gradient(155deg, rgba(32,58,74,0.25) 0%, rgba(20,42,53,0.50) 40%, rgba(15,32,39,0.90) 100%),
+    url('/static/img/fachada-colegio-elite.png') center/cover no-repeat;
+  background-attachment: fixed;
+  color: #FFFFFF;
+}
+[data-theme="light"] #seccion-admision .text-2,
+
+[data-theme="light"] #seccion-admision .badge-mini-gold { color: #CBD5E1; }
+[data-theme="light"] #seccion-admision .metric-digit { color: #FFFFFF; }
+[data-theme="light"] #seccion-admision .metric-caption { color: #7E93A8; }
+[data-theme="light"] #seccion-admision .hero-main-title { color: #FFFFFF; }
+
+/* ── LICENCIATURAS: Fondo alternante con gradiente sutil y foto ── */
+/* ── LICENCIATURAS: Fondo alternante con gradiente sutil y foto ── */
+#seccion-carreras {
+  background: 
+    linear-gradient(180deg, rgba(8,14,19,0.10) 0%, rgba(4,6,8,0.30) 100%),
+    url('/static/img/practica-criminalistica.png') center/cover no-repeat;
+  background-attachment: fixed;
+}
+[data-theme="light"] #seccion-carreras {
+  background: 
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.25) 100%),
+    url('/static/img/practica-criminalistica.png') center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+/* ── CAMPUS: Fondo de acento con tono profundo ── */
+#seccion-campus {
+  background: 
+    linear-gradient(180deg, rgba(8,14,19,0.10) 0%, rgba(4,6,8,0.30) 100%),
+    url('/static/img/aula-universitaria.png') center/cover no-repeat;
+  background-attachment: fixed;
+}
+[data-theme="light"] #seccion-campus {
+  background: 
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.25) 100%),
+    url('/static/img/aula-universitaria.png') center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+/* ── CONTACTO: Regresa al fondo base, separador dorado sutil y foto ── */
+#seccion-contacto {
+  background: 
+    linear-gradient(175deg, rgba(15,32,39,0.20) 0%, rgba(10,15,20,0.40) 100%),
+    url('/static/img/aula-universitaria.png') center/cover no-repeat;
+  background-attachment: fixed;
+  border-top: 1px solid var(--line-accent);
+}
+[data-theme="light"] #seccion-contacto {
+  background: 
+    linear-gradient(175deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.25) 100%),
+    url('/static/img/fachada-colegio-elite.png') center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+/* Separador decorativo dorado entre secciones (línea superior sutil) */
+#seccion-carreras::before,
+#seccion-campus::before {
+  content: '';
+  position: absolute; top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 80px; height: 2px;
+  background: var(--gold-shimmer);
+  border-radius: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   11. HERO — Impacto visual dramático con tipografía grande
+   ═══════════════════════════════════════════════════════════════════════════ */
+.section-grid-hero {
+  display: grid; grid-template-columns: 1fr;
+  gap: 3rem; align-items: center;
+}
+
+/* Badge con rating */
+.badge-mini-gold {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em;
+  color: var(--text-3);
+  padding: 0.3rem 0.8rem;
+  background: var(--gold-glow);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.gold-star-rating { color: var(--gold); font-size: 0.65rem; letter-spacing: 0; }
+
+/* Título — grande, dramático, con acento dorado en la primera línea */
+.hero-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.hero-subtext {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.8) !important;
+  margin-bottom: 2rem;
+  max-width: 50ch;
+}
+
+/* Métricas — grid limpio con línea divisoria */
+.metrics-row-crystal {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--line-med);
+  background: var(--line);
+}
+
+.metric-box-crystal {
+  padding: 1.25rem 0.75rem;
+  text-align: center;
+  background: var(--bg-raised);
+  transition: background var(--dur) var(--ease);
+}
+
+.metric-box-crystal:hover { background: var(--glass-clear); }
+
+.metric-digit {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.85rem; font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.metric-caption {
+  font-family: var(--font-display);
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   12. FORMULARIO — Tarjeta glass flotante con profundidad extrema
+   ═══════════════════════════════════════════════════════════════════════════ */
+.frosted-form-card {
+  background: var(--glass-frost);
+  backdrop-filter: blur(16px) saturate(200%);
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+  border: 1px solid var(--glass-frost-border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--glass-frost-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea decorativa dorada en la parte superior del form */
+.frosted-form-card::before {
+  content: '';
+  position: absolute; top: 0; left: 2rem; right: 2rem;
+  height: 2px;
+  background: var(--gold-shimmer);
+  border-radius: 0 0 2px 2px;
+}
+
+.form-header-compact { margin-bottom: 1.75rem; }
+
+.form-title-compact {
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+}
+
+/* Etiquetas y utilidades del form */
+.tag-gold-mini {
+  font-family: var(--font-display);
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.5rem; display: inline-block;
+}
+.form-desc-compact { font-size: 0.85rem; color: var(--text-3); }
+
+.compact-admission-form { display: flex; flex-direction: column; gap: 1.1rem; }
+.form-row-duo { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
+.form-group-compact { display: flex; flex-direction: column; gap: 0.35rem; }
+
+.label-compact {
+  font-family: var(--font-display);
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: var(--text-3);
+}
+.gold-accent { color: var(--gold); }
+
+/* Inputs — Fondo sutil con estado :focus que ilumina con dorado */
+.input-crystal {
+  color: var(--text-1) !important;
+  width: 100%; min-height: 48px;
+  background: var(--bg-input);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.85rem;
+  font-size: 0.95rem;
+  color: var(--text-1);
+  transition: all var(--dur) var(--ease);
+  outline: none;
+}
+.input-crystal::placeholder { color: var(--text-4); }
+
+/* Focus — Iluminación dorada con glow exterior */
+.input-crystal:focus {
+  border-color: var(--gold);
+  background: rgba(212,175,55,0.04);
+  box-shadow: 0 0 0 3px var(--gold-glow), 0 0 16px rgba(212,175,55,0.08);
+}
+.input-crystal.is-invalid {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(255,69,58,0.12);
+}
+
+/* Select */
+.select-crystal {
+  cursor: pointer;
+  -webkit-appearance: none; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2rem;
+}
+.select-crystal option { background: var(--navy-deep); color: #FFF; }
+[data-theme="light"] .select-crystal option { background: #FFF; color: #0F2027; }
+
+/* Checkbox */
+.form-privacy-compact { margin: 0.15rem 0; }
+.checkbox-compact-label {
+  display: flex; align-items: flex-start; gap: 0.5rem;
+  font-size: 0.78rem; color: var(--text-3); cursor: pointer; line-height: 1.5;
+}
+.checkbox-compact-label input[type="checkbox"] {
+  width: 17px; height: 17px; margin-top: 0.1rem; flex-shrink: 0;
+  accent-color: var(--gold);
+}
+
+/* Nota de seguridad */
+.form-security-note {
+  display: flex; align-items: center; justify-content: center; gap: 0.3rem;
+  font-size: 0.68rem; color: var(--text-4);
+  text-align: center; margin-top: 0.3rem; letter-spacing: 0.03em;
+}
+
+/* Feedback */
+.form-feedback-box {
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem; font-weight: 600; line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+.form-feedback-box.success {
+  background: rgba(52,211,153,0.10);
+  border: 1px solid rgba(52,211,153,0.30);
+  color: var(--success);
+}
+.form-feedback-box.error {
+  background: rgba(255,69,58,0.08);
+  border: 1px solid rgba(255,69,58,0.25);
+  color: var(--error);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   13. LICENCIATURAS — Tarjetas glass que flotan con elevación hover
+   ═══════════════════════════════════════════════════════════════════════════ */
+.section-title-wrap { margin-bottom: 2.5rem; }
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-1); line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.section-intro {
+  font-size: 1rem; color: var(--text-3);
+  max-width: 50ch; margin: 0 auto; line-height: 1.65;
+}
+
+/* Filtros de categoría */
+.career-filters-bar {
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+  gap: 0.4rem; margin-top: 1.5rem;
+}
+
+.filter-chip {
+  background: var(--glass-clear);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--line-med);
+  color: var(--text-3);
+  padding: 0 1rem; height: 36px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em;
+  cursor: pointer; display: inline-flex; align-items: center;
+  transition: all var(--dur) var(--ease);
+}
+.filter-chip:hover { border-color: var(--gold-border); color: var(--text-1); }
+
+.filter-chip.active {
+  background: var(--navy-surface);
+  color: #FFFFFF;
+  border-color: var(--gold);
+  box-shadow: 0 0 12px rgba(212,175,55,0.20);
+}
+
+[data-theme="light"] .filter-chip.active {
+  background: var(--navy-deep);
+  color: #FFFFFF;
+}
+
+/* Grid de carreras */
+.careers-compact-grid {
+  display: grid; grid-template-columns: 1fr; gap: 1.1rem;
+}
+
+/* Tarjeta de carrera — efecto flotante dramático en hover */
+.career-tile-crystal {
+  padding: 1.5rem 1.5rem 1.25rem;
+  border-radius: var(--radius-sm);
+  display: flex; flex-direction: column;
+  position: relative;
+  transition: all var(--dur) var(--ease);
+}
+
+.career-tile-crystal:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Línea dorada sutil en el borde izquierdo al hacer hover */
+
+
+.career-tile-crystal.is-hidden { display: none !important; }
+
+.tile-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+/* Badge de categoría */
+.tile-badge-navy {
+  font-family: var(--font-display);
+  font-size: 0.60rem; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--navy-surface), var(--navy-mid));
+  color: rgba(255,255,255,0.85);
+  border: 1px solid var(--navy-border);
+}
+[data-theme="light"] .tile-badge-navy {
+  background: linear-gradient(135deg, #E2E8F0, #F1F5F9);
+  color: var(--text-3);
+  border-color: var(--line-med);
+}
+
+/* Punto dorado con glow */
+.tile-gold-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--gold); display: inline-block; flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(212,175,55,0.50);
+}
+
+.tile-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem; font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-1); margin-bottom: 0.4rem;
+}
+
+.tile-desc {
+  font-size: 0.85rem; line-height: 1.65;
+  color: var(--text-3); margin-bottom: 1rem; flex-grow: 1;
+}
+
+/* Enlace-botón "Seleccionar" en las tarjetas */
+button.link-gold-accent {
+  background: transparent; border: none; padding: 0;
+  cursor: pointer; text-align: left;
+  margin-top: auto;
+}
+.link-gold-accent {
+  font-family: var(--font-display);
+  font-size: 0.82rem; font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  display: inline-flex; align-items: center; gap: 0.25rem;
+  transition: all var(--dur) var(--ease);
+}
+.link-gold-accent:hover {
+  color: var(--gold-light);
+  letter-spacing: 0.08em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   14. CAMPUS — Galería dramática con overlay gradient
+   ═══════════════════════════════════════════════════════════════════════════ */
+.campus-showcase-grid {
+  display: grid; grid-template-columns: 1fr; gap: 1.25rem;
+}
+
+.campus-tile-glass {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all var(--dur) var(--ease);
+}
+.campus-tile-glass:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.campus-media-box {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--navy-deep);
+}
+
+.campus-photo {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease);
+}
+.campus-tile-glass:hover .campus-photo { transform: scale(1.06); }
+
+/* Overlay gradient dramático sobre las fotos */
+.campus-label-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 2rem 1.5rem 1.25rem;
+  background: linear-gradient(0deg,
+    rgba(15,32,39,0.92) 0%,
+    rgba(15,32,39,0.60) 40%,
+    rgba(15,32,39,0.00) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: none; box-shadow: none;
+}
+
+.badge-gold-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.56rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--gold-shimmer); color: #000;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.35rem;
+}
+
+.campus-label-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em; line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.campus-label-text {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.70); line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   15. CONTACTO — Tarjetas con iconos iluminados y CTA final
+   ═══════════════════════════════════════════════════════════════════════════ */
+.contact-compact-layout {
+  display: grid; grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.contact-details-box {
+  padding: 2rem 1.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.contact-lead-text {
+  font-size: 1rem; color: var(--text-3);
+  margin-bottom: 1.75rem; line-height: 1.7;
+}
+
+.contact-items-stack { display: flex; flex-direction: column; gap: 0; }
+
+.contact-line-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: all var(--dur) var(--ease);
+}
+.contact-line-item:first-child { padding-top: 0; }
+.contact-line-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+/* Hover — desplaza ligeramente a la derecha */
+.contact-line-item:hover { transform: translateX(4px); }
+
+/* Iconos dentro de círculos dorados iluminados */
+.contact-dot-gold {
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  transition: all var(--dur) var(--ease);
+}
+
+.contact-line-item:hover .contact-dot-gold {
+  background: var(--gold-glow);
+  box-shadow: 0 0 16px rgba(212,175,55,0.25);
+  transform: scale(1.08);
+}
+
+.contact-line-item strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-3); margin-bottom: 0.2rem;
+}
+
+.contact-line-item p {
+  font-size: 0.95rem; color: var(--text-1);
+  font-weight: 500; margin-bottom: 0.25rem; line-height: 1.4;
+}
+
+/* CTA Card final — frosted glass con acentos */
+.contact-cta-card {
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1rem;
+  position: relative; overflow: hidden;
+}
+
+/* Línea decorativa dorada superior */
+.contact-cta-card::before {
+  content: '';
+  position: absolute; top: 0; left: 2rem; right: 2rem;
+  height: 2px;
+  background: var(--gold-shimmer);
+  border-radius: 0 0 2px 2px;
+}
+
+.cta-card-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+}
+
+.cta-card-sub {
+  font-size: 0.9rem; color: var(--text-3);
+  max-width: 34ch; line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   16. PIE DE PÁGINA — Sobrio con acento institucional
+   ═══════════════════════════════════════════════════════════════════════════ */
+.footer-site-compact {
+  background: var(--navy-deep);
+  border-top: 2px solid var(--gold-border);
+  padding-top: 3.5rem;
+  color: #CBD5E1;
+}
+
+.footer-content-flex {
+  display: grid; grid-template-columns: 1fr;
+  gap: 2rem; padding-bottom: 2.5rem;
+}
+
+.footer-title-plain {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.9rem; font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  background: linear-gradient(135deg, #FFF 30%, var(--gold) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-motto {
+  font-size: 0.8rem; color: var(--gold);
+  font-style: italic; margin-bottom: 0.4rem;
+}
+
+.footer-meta-address {
+  font-size: 0.8rem; color: #7E93A8; line-height: 1.6;
+}
+
+.footer-nav-list { display: flex; flex-direction: column; gap: 0.45rem; }
+
+.footer-nav-list a {
+  font-size: 0.84rem; color: #7E93A8;
+  font-weight: 500;
+  transition: color 0.2s var(--ease);
+}
+.footer-nav-list a:hover { color: var(--gold); }
+
+.footer-security-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--success); margin-top: 0.4rem;
+}
+
+.footer-copyright-bar {
+  background: rgba(0,0,0,0.30);
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-copy-flex {
+  display: flex; flex-direction: column; gap: 0.2rem;
+  text-align: center;
+  font-size: 0.74rem; color: #4A5F72;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   17. BOTÓN FLOTANTE WHATSAPP — Con pulso vital
+   ═══════════════════════════════════════════════════════════════════════════ */
+.floating-wa-box {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
+}
+
+.floating-wa-btn {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  width: 54px; height: 54px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border-radius: 50%; color: #FFF;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+  transition: all var(--dur) var(--ease-spring);
+}
+.floating-wa-btn:hover {
+  transform: scale(1.14);
+  box-shadow: 0 10px 36px rgba(37,211,102,0.50);
+}
+
+.wa-chat-icon { font-size: 1.5rem; line-height: 1; display: flex; }
+
+.wa-dot-indicator {
+  position: absolute; top: -2px; right: -2px;
+  width: 11px; height: 11px;
+  background: var(--gold);
+  border: 2px solid var(--bg-base);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.5); opacity: 0.5; }
+}
+
+.wa-tooltip-text {
+  display: none;
+  position: absolute; right: 62px; white-space: nowrap;
+  background: var(--bg-raised); color: var(--text-1);
+  font-family: var(--font-display);
+  font-size: 0.72rem; font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-med);
+  pointer-events: none;
+  box-shadow: var(--shadow-card);
+}
+.floating-wa-btn:hover .wa-tooltip-text { display: block; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   18. RESPONSIVO
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (min-width: 560px) {
+  .form-row-duo { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 768px) {
+  .careers-compact-grid { grid-template-columns: repeat(2, 1fr); }
+  .campus-showcase-grid { grid-template-columns: repeat(3, 1fr); }
+  .contact-compact-layout { grid-template-columns: 1.4fr 0.6fr; align-items: start; }
+  .footer-content-flex { grid-template-columns: 1.5fr 1fr; }
+  .footer-copy-flex { flex-direction: row; justify-content: space-between; text-align: left; }
+}
+
+@media (min-width: 1024px) {
+  .section-grid-hero {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4.5rem; align-items: center;
+  }
+  .careers-compact-grid { grid-template-columns: repeat(3, 1fr); }
+  .modular-section { padding: 6rem 0; }
+  #seccion-admision { padding: 5rem 0 7rem; }
+  .hero-main-title { font-size: 3.4rem; }
+}
+
+@media (min-width: 1200px) {
+  .hero-main-title { font-size: 3.8rem; }
+}
+
+.frosted-header {
+  background: var(--header-blur);
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  border-bottom: 1px solid var(--line-med);
+}
+
+
+
+
+
+
+
+
+.section-heading, .section-intro { color: #FFFFFF !important; text-shadow: 0 2px 12px rgba(0,0,0,0.8) !important; }
+[data-theme="light"] .section-heading, [data-theme="light"] .section-intro { color: #FFFFFF !important; text-shadow: 0 2px 12px rgba(0,0,0,0.8) !important; }
+
+
+@media (max-width: 560px) {
+  .header-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 0 0.5rem;
+  }
+  .header-left { display: none !important; }
+  .brand-name-text {
+    font-size: 0.9rem !important;
+    letter-spacing: 0.05em !important;
+  }
+  .theme-label { display: none !important; }
+  .theme-toggle-btn { padding: 0.35rem 0.5rem !important; }
+  .brand-svg-container { width: 32px !important; height: 32px !important; }
+  
+  /* Fix tabs bar scrolling on mobile */
+  .tabs-scroll-container {
+    justify-content: flex-start !important; /* Allow scroll from left edge */
+  }
+
+  .section-tabs-bar .container {
+    padding: 0;
+  }
+  .tabs-nav-list {
+    gap: 0.5rem;
+    padding-bottom: 4px;
+  }
+  .section-tab-chip {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+
+@media (max-width: 560px) {
+  /* Autoajuste de botones para celulares (evitar recortes) */
+  .btn {
+    padding: 0 1rem !important;
+    font-size: 0.85rem !important;
+    white-space: normal !important;
+    min-height: 44px !important;
+    text-align: center !important;
+  }
+  .filter-chip {
+    padding: 0 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
+  .link-gold-accent {
+    font-size: 0.8rem !important;
+  }
+  .career-tile-crystal {
+    padding: 1.25rem 1rem 1rem !important; /* give slightly more breathing room inside cards on narrow screens */
+  }
+}
