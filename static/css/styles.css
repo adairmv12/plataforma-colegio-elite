@@ -412,7 +412,7 @@ button, input, select { font: inherit; color: inherit; }
 #seccion-admision {
   background: 
     linear-gradient(155deg, rgba(15,32,39,0.25) 0%, rgba(10,15,20,0.50) 40%, rgba(0,0,0,0.90) 100%),
-    url('/static/img/fachada-colegio-elite.png') center/cover no-repeat;
+    url('../img/fachada-colegio-elite.png') center/cover no-repeat;
   background-attachment: fixed; /* Parallax suave */
   padding-bottom: 6rem;
 }
@@ -421,7 +421,7 @@ button, input, select { font: inherit; color: inherit; }
 [data-theme="light"] #seccion-admision {
   background: 
     linear-gradient(155deg, rgba(32,58,74,0.25) 0%, rgba(20,42,53,0.50) 40%, rgba(15,32,39,0.90) 100%),
-    url('/static/img/fachada-colegio-elite.png') center/cover no-repeat;
+    url('../img/fachada-colegio-elite.png') center/cover no-repeat;
   background-attachment: fixed;
   color: #FFFFFF;
 }
@@ -437,13 +437,13 @@ button, input, select { font: inherit; color: inherit; }
 #seccion-carreras {
   background: 
     linear-gradient(180deg, rgba(8,14,19,0.10) 0%, rgba(4,6,8,0.30) 100%),
-    url('/static/img/practica-criminalistica.png') center/cover no-repeat;
+    url('../img/practica-criminalistica.png') center/cover no-repeat;
   background-attachment: fixed;
 }
 [data-theme="light"] #seccion-carreras {
   background: 
     linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.25) 100%),
-    url('/static/img/practica-criminalistica.png') center/cover no-repeat;
+    url('../img/practica-criminalistica.png') center/cover no-repeat;
   background-attachment: fixed;
 }
 
@@ -451,13 +451,13 @@ button, input, select { font: inherit; color: inherit; }
 #seccion-campus {
   background: 
     linear-gradient(180deg, rgba(8,14,19,0.10) 0%, rgba(4,6,8,0.30) 100%),
-    url('/static/img/aula-universitaria.png') center/cover no-repeat;
+    url('../img/aula-universitaria.png') center/cover no-repeat;
   background-attachment: fixed;
 }
 [data-theme="light"] #seccion-campus {
   background: 
     linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.25) 100%),
-    url('/static/img/aula-universitaria.png') center/cover no-repeat;
+    url('../img/aula-universitaria.png') center/cover no-repeat;
   background-attachment: fixed;
 }
 
@@ -465,14 +465,14 @@ button, input, select { font: inherit; color: inherit; }
 #seccion-contacto {
   background: 
     linear-gradient(175deg, rgba(15,32,39,0.20) 0%, rgba(10,15,20,0.40) 100%),
-    url('/static/img/aula-universitaria.png') center/cover no-repeat;
+    url('../img/aula-universitaria.png') center/cover no-repeat;
   background-attachment: fixed;
   border-top: 1px solid var(--line-accent);
 }
 [data-theme="light"] #seccion-contacto {
   background: 
     linear-gradient(175deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.25) 100%),
-    url('/static/img/fachada-colegio-elite.png') center/cover no-repeat;
+    url('../img/fachada-colegio-elite.png') center/cover no-repeat;
   background-attachment: fixed;
 }
 
